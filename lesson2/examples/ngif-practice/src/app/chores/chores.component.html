@@ -1,4 +1,4 @@
-<div class="chores">
+<div class="chores" *ngIf = "finishedChores.length < chores.length; else workHarder">
     <h3>Chores</h3>
     <ul>
         <li *ngFor = 'let chore of chores'>{{chore}}</li>
@@ -12,3 +12,9 @@
     </ul>
 </div>
 <hr>
+
+<ng-template #workHarder>
+    <div class = 'chores'>
+        <h3>Work Harder!</h3>
+    </div>
+</ng-template>

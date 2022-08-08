@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'Exercises: Angular Lesson 3';
 
@@ -22,6 +23,7 @@ export class AppComponent {
      this.width = 0;
      this.message = 'Shuttle in flight.';
   }
+  this.takeOffEnabled = false;
 }
 
  handleLand(rocketImage) {
@@ -33,6 +35,7 @@ export class AppComponent {
      this.message = 'The shuttle has landed.';
      rocketImage.style.bottom = '0px';
   }
+  this.takeOffEnabled = true;
 }
 
  handleAbortMission(rocketImage) {
@@ -44,6 +47,7 @@ export class AppComponent {
      this.message = 'Mission aborted.';
      rocketImage.style.bottom = '0px';
   }
+  this.takeOffEnabled = true;
 }
 
   moveRocket (rocketImage, direction){
@@ -68,4 +72,10 @@ export class AppComponent {
       this.height = this.height - 10000;
     }
   }
+
+  flightWarning (width, height){
+    if ((this.width > 260000 || this.width < 0 || this.height < 0 || this.height > 340000)){
+      this.color = 'orange';
+  }
+}
 }
